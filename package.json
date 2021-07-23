@@ -1,0 +1,70 @@
+{
+  "name": "exygy-assessment",
+  "version": "0.2.12",
+  "description": "This is a starter project for Exygy's engineering hiring assessment.",
+  "workspaces": {
+    "packages": [
+      "sites/public",
+      "backend/core",
+      "ui-components"
+    ],
+    "nohoist": [
+      "**/@anchan828/nest-sendgrid"
+    ]
+  },
+  "repository": "https://github.com/Exygy/bloom.git",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "dev:app": "wait-on \"http-get://localhost:${PORT:-3100}/listings\" && cd sites/public && yarn dev",
+    "test:app": "wait-on \"http-get://localhost:${PORT:-3100}/listings\" && cd sites/public && yarn test",
+    "test:app:headless": "wait-on \"http-get://localhost:${PORT:-3100}/listings\" && cd sites/public && yarn test:headless",
+    "build:app": "cd sites/public && yarn build",
+    "dev:backend": "cd backend/core && yarn dev",
+    "dev": "concurrently --names \" BACKEND_CORE,APP_PUBLIC\" --prefix \"{name}\" \"yarn dev:backend\" \"yarn dev:app\"",
+    "test:shared:ui": "cd ui-components && yarn && yarn test",
+    "test:shared:ui:a11y": "cd ui-components && yarn && yarn test:a11y",
+    "test:backend:core:dbsetup": "cd backend/core && yarn db:migration:run && yarn db:seed",
+    "test:backend:core": "cd backend/core && yarn test",
+    "test:e2e:backend:core": "cd backend/core && yarn test:e2e",
+    "test:apps": "concurrently \"yarn dev:backend\" \"yarn test:app:public\"",
+    "test:apps:headless": "concurrently \"yarn dev:backend\" \"yarn test:app:public:headless\"",
+    "lint": "eslint '**/*.ts' '**/*.tsx' '**/*.js'"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "husky": "^4.3.0",
+    "jest": "^26.5.3",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.0",
+    "react": "16.13.1",
+    "react-test-renderer": "16.13.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^3.9.7",
+    "wait-on": "^5.2.0"
+  },
+  "prettier": {
+    "singleQuote": false,
+    "printWidth": 100,
+    "semi": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'Test' && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --max-warnings 0"
+  }
+}

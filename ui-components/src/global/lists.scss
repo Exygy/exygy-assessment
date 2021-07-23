@@ -1,0 +1,21 @@
+// responsive content spacing
+.responsive-content-list {
+  .responsive-content-item {
+    @screen md {
+      @apply pt-12;
+      @apply pb-4;
+      margin-left: -9999rem;
+      margin-right: -9999rem;
+      /* add back negative margin value */
+      padding-left: 9999rem;
+      padding-right: 9999rem;
+    }
+  }
+
+  .header-hidden {
+    @screen md {
+      @apply pt-0;
+      @apply pb-0;
+    }
+  }
+}

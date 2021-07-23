@@ -1,0 +1,78 @@
+.alert-box {
+  @apply relative;
+  @apply py-4;
+  @apply pr-10;
+  @apply leading-snug;
+  @apply flex;
+  @apply items-center;
+
+  .alert-box_inner {
+    @apply m-auto;
+    @apply max-w-5xl;
+    @apply px-4;
+    @apply flex-1;
+    @apply flex;
+    @apply items-center;
+  }
+
+  &.fullWidth {
+    @apply px-4;
+  }
+
+  &.narrow {
+    @apply py-2;
+  }
+
+  // Inverts color scheme of alert
+  &.invert {
+    @apply text-white;
+
+    .close {
+      @apply text-white;
+    }
+  }
+
+  &.alert {
+    @apply bg-alert-light;
+
+    &.invert {
+      @apply bg-alert;
+    }
+  }
+
+  &.primary {
+    @apply bg-primary-light;
+
+    &.invert {
+      @apply bg-primary;
+    }
+  }
+
+  &.success {
+    @apply bg-success-light;
+
+    &.invert {
+      @apply bg-success;
+    }
+  }
+
+  &.warn {
+    @apply bg-warn-light;
+
+    &.invert {
+      @apply bg-warn;
+    }
+  }
+}
+
+.alert-box__body {
+  @apply ml-2;
+  @apply font-semibold;
+  @apply text-tiny;
+}
+
+.alert-box__close {
+  @apply absolute;
+  @apply text-3xl;
+  right: 1rem;
+}

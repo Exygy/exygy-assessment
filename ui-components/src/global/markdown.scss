@@ -1,0 +1,33 @@
+.markdown {
+  h3 {
+    @apply mt-8;
+    @apply mb-5;
+    @apply text-3xl;
+
+    @screen md {
+      @apply text-xl;
+    }
+  }
+
+  h3:first-child {
+    @apply mt-0;
+  }
+
+  hr {
+    @apply mt-8;
+    @apply mb-8;
+    @apply border-b;
+    @apply border-solid;
+    @apply border-gray-450;
+  }
+
+  p:not(:last-child),
+  ul:not(:last-child) {
+    @apply mb-4;
+  }
+
+  ul {
+    list-style: disc;
+    @apply ml-6;
+  }
+}

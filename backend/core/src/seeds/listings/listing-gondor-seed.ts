@@ -29,9 +29,9 @@ const gondorProperty: PropertySeedType = {
   amenities: "Community room, bike parking, courtyard off the community room, 2nd floor courtyard.",
   buildingAddress: {
     county: "Alameda",
-    city: "Oakland",
-    street: "3300 Hawley Street",
-    zipCode: "94621",
+    city: "Minas Tirith",
+    street: "3320 Pelennor Ave",
+    zipCode: "12345",
     state: "CA",
     latitude: 37.7549632,
     longitude: -122.1968792,

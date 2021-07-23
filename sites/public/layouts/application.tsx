@@ -1,12 +1,9 @@
 import React from "react"
-import { useRouter } from "next/router"
 import Link from "next/link"
 import Head from "next/head"
 import { SiteHeader, SiteFooter, FooterSection, ExygyFooter, t } from "@bloom-housing/ui-components"
 
 const Layout = (props) => {
-  const router = useRouter()
-
   return (
     <div className="site-wrapper">
       <div className="site-content">
@@ -14,6 +11,9 @@ const Layout = (props) => {
           <title>{t("nav.siteTitle")}</title>
         </Head>
         <SiteHeader skip={t("nav.skip")} logoSrc="/images/logo.png" title={"Exygy Assessment"}>
+          <Link href="/docs">
+            <a className="navbar-item">Documentation</a>
+          </Link>
           <Link href="/part-one">
             <a className="navbar-item">Assessment Part 1</a>
           </Link>

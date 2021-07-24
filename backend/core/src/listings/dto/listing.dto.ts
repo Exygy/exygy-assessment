@@ -24,10 +24,7 @@ import { UserBasicDto } from "../../auth/dto/user.dto"
 import { ListingStatus } from "../types/listing-status-enum"
 import { BaseFilter } from "../../shared/dto/filter.dto"
 import { UnitCreateDto, UnitDto, UnitUpdateDto } from "../../units/dto/unit.dto"
-import { transformUnits } from "../../shared/units-transformations"
 import { JurisdictionDto } from "../../jurisdictions/dto/jurisdiction.dto"
-import { Unit } from "../../units/entities/unit.entity"
-import { UnitsSummarized } from "../../units/types/units-summarized"
 import { ReservedCommunityTypeDto } from "../../reserved-community-type/dto/reserved-community-type.dto"
 import { AssetCreateDto, AssetDto, AssetUpdateDto } from "../../assets/dto/asset.dto"
 import { ListingEventCreateDto, ListingEventDto, ListingEventUpdateDto } from "./listing-event.dto"
@@ -297,14 +294,6 @@ export class ListingDto extends OmitType(Listing, [
     { toClassOnly: true }
   )
   yearBuilt?: number | null
-
-  @Expose()
-  @ApiProperty({ type: UnitsSummarized })
-  get unitsSummarized(): UnitsSummarized | undefined {
-    if (Array.isArray(this.units) && this.units.length > 0) {
-      return transformUnits(this.units as Unit[])
-    }
-  }
 }
 
 export class ListingCreateDto extends OmitType(ListingDto, [
@@ -333,7 +322,6 @@ export class ListingCreateDto extends OmitType(ListingDto, [
   "unitAmenities",
   "servicesOffered",
   "yearBuilt",
-  "unitsSummarized",
   "jurisdiction",
   "reservedCommunityType",
   "applicationCount",
@@ -519,7 +507,6 @@ export class ListingUpdateDto extends OmitType(ListingDto, [
   "unitAmenities",
   "servicesOffered",
   "yearBuilt",
-  "unitsSummarized",
   "jurisdiction",
   "reservedCommunityType",
   "applicationCount",

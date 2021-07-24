@@ -3,7 +3,7 @@ import { PageHeader, t } from "@bloom-housing/ui-components"
 import Layout from "../layouts/application"
 
 export default function Docs() {
-  const pageTitle = `${t("pageTitle.rent")} - ${t("nav.siteTitle")}`
+  const pageTitle = "Exygy Assessment - Docs"
 
   return (
     <Layout>

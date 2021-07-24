@@ -1,7 +1,7 @@
 /** Generate by swagger-axios-codegen */
 // tslint:disable
 /* eslint-disable */
-import axiosStatic, { AxiosInstance } from "axios"
+import { AxiosInstance } from "axios"
 
 export interface IRequestOptions {
   headers?: any
@@ -3419,38 +3419,6 @@ export interface HMI {
   rows: object[]
 }
 
-export interface UnitsSummarized {
-  /**  */
-  unitTypes: UnitType[]
-
-  /**  */
-  reservedTypes: string[]
-
-  /**  */
-  priorityTypes: UnitAccessibilityPriorityType[]
-
-  /**  */
-  amiPercentages: string[]
-
-  /**  */
-  byUnitTypeAndRent: UnitSummary[]
-
-  /**  */
-  byUnitType: UnitSummary[]
-
-  /**  */
-  byNonReservedUnitType: UnitSummary[]
-
-  /**  */
-  byReservedType: UnitSummaryByReservedType[]
-
-  /**  */
-  byAMI: UnitSummaryByAMI[]
-
-  /**  */
-  hmi: HMI
-}
-
 export interface PreferenceLink {
   /**  */
   title: string
@@ -3741,9 +3709,6 @@ export interface Listing {
 
   /**  */
   showWaitlist: boolean
-
-  /**  */
-  unitsSummarized: UnitsSummarized
 
   /**  */
   preferences: Preference[]
@@ -4635,9 +4600,6 @@ export interface ListingUpdate {
 }
 
 export interface Property {
-  /**  */
-  unitsSummarized: UnitsSummarized
-
   /**  */
   units: Unit[]
 

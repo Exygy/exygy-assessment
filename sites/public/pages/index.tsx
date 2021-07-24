@@ -1,18 +1,9 @@
 import React, { useState } from "react"
 import Head from "next/head"
 import { Listing } from "@bloom-housing/backend-core/types"
-import {
-  AlertBox,
-  LinkButton,
-  Hero,
-  MarkdownSection,
-  t,
-  SiteAlert,
-} from "@bloom-housing/ui-components"
+import { Hero, t, SiteAlert } from "@bloom-housing/ui-components"
 import Layout from "../layouts/application"
 import axios from "axios"
-import { ConfirmationModal } from "../src/ConfirmationModal"
-import { MetaTags } from "../src/MetaTags"
 
 interface IndexProps {
   listings: Listing[]

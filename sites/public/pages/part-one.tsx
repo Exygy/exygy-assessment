@@ -10,7 +10,7 @@ export interface ListingsProps {
 }
 
 export default function PartOne(props: ListingsProps) {
-  const pageTitle = `${t("pageTitle.rent")} - ${t("nav.siteTitle")}`
+  const pageTitle = "Exygy Assessment - Part One"
 
   return (
     <Layout>

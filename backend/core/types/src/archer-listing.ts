@@ -578,6 +578,11 @@ export const ArcherListing: Listing = {
   depositMax: "",
   disableUnitsAccordion: false,
   countyCode: CountyCode.Alameda,
+  CSVFormattingType: null,
+  showWaitlist: null,
+  applicationDropOffAddress: null,
+  applicationMailingAddress: null,
+  displayWaitlistSize: null,
   events: [],
   urlSlug: "listing-slug-abcdef",
   whatToExpect: {
@@ -667,7 +672,6 @@ export const ArcherListing: Listing = {
   unitsAvailable: 0,
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  unitsSummarized: {},
   unitAmenities: "Dishwasher",
   developer: "Charities Housing ",
   yearBuilt: 2012,

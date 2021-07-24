@@ -10,14 +10,8 @@ afterEach(cleanup)
 const archer = Object.assign({}, Archer) as any
 const triton = Object.assign({}, Triton) as any
 archer.property = {}
-archer.property.unitsSummarized = {}
-archer.property.unitsSummarized.byNonReservedUnitType = []
-archer.property.unitsSummarized.byReservedType = []
 
 triton.property = {}
-triton.property.unitsSummarized = {}
-triton.property.unitsSummarized.byNonReservedUnitType = []
-triton.property.unitsSummarized.byReservedType = []
 const listings = [archer, triton] as Listing[]
 
 describe("<ListingsGroup>", () => {

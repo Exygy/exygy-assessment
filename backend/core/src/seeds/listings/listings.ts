@@ -11,12 +11,7 @@ import { BaseEntity } from "typeorm"
 
 export type PropertySeedType = Omit<
   PropertyCreateDto,
-  | "propertyGroups"
-  | "listings"
-  | "units"
-  | "unitsSummarized"
-  | "householdSizeMin"
-  | "householdSizeMax"
+  "propertyGroups" | "listings" | "units" | "householdSizeMin" | "householdSizeMax"
 >
 
 export type UnitSeedType = Omit<UnitCreateDto, "property">
@@ -50,7 +45,6 @@ export type ListingSeedType = Omit<
   | "unitAmenities"
   | "servicesOffered"
   | "yearBuilt"
-  | "unitsSummarized"
 >
 
 export type PreferenceSeedType = Omit<PreferenceCreateDto, "listing">

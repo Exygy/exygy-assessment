@@ -7,31 +7,14 @@ import {
   NavigationContext,
   AuthProvider,
   ConfigProvider,
-  LoggedInUserIdleTimeout,
-  blankApplication,
 } from "@bloom-housing/ui-components"
 import { headScript, bodyTopTag, pageChangeHandler } from "../src/customScripts"
-import { AppSubmissionContext } from "../lib/AppSubmissionContext"
-import ApplicationConductor, {
-  loadApplicationFromAutosave,
-  loadSavedListing,
-} from "../lib/ApplicationConductor"
+
 import { translations, overrideTranslations } from "../src/translations"
 import LinkComponent from "../src/LinkComponent"
 
 function BloomApp({ Component, router, pageProps }: AppProps) {
   const { locale } = router
-  //  const initialized = useState(true)
-  const [application, setApplication] = useState(() => {
-    return loadApplicationFromAutosave() || blankApplication()
-  })
-  const [savedListing, setSavedListing] = useState(() => {
-    return loadSavedListing()
-  })
-
-  const conductor = useMemo(() => {
-    return new ApplicationConductor(application, savedListing)
-  }, [application, savedListing])
 
   useMemo(() => {
     addTranslation(translations.general, true)
@@ -71,22 +54,11 @@ function BloomApp({ Component, router, pageProps }: AppProps) {
         router: router as GenericRouter,
       }}
     >
-      <AppSubmissionContext.Provider
-        value={{
-          conductor: conductor,
-          application: application,
-          listing: savedListing,
-          syncApplication: setApplication,
-          syncListing: setSavedListing,
-        }}
-      >
-        <ConfigProvider apiUrl={process.env.backendApiBase}>
-          <AuthProvider>
-            <LoggedInUserIdleTimeout onTimeout={() => conductor.reset()} />
-            <Component {...pageProps} />
-          </AuthProvider>
-        </ConfigProvider>
-      </AppSubmissionContext.Provider>
+      <ConfigProvider apiUrl={process.env.backendApiBase}>
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
+      </ConfigProvider>
     </NavigationContext.Provider>
   )
 }

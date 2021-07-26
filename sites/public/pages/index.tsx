@@ -29,7 +29,7 @@ export default function Home(props: IndexProps) {
   return (
     <Layout>
       <Head>
-        <title>{t("nav.siteTitle")}</title>
+        <title>{"Exygy Assessment"}</title>
       </Head>
       <div className="flex absolute w-full flex-col items-center">
         <SiteAlert type="alert" className={alertClasses} />

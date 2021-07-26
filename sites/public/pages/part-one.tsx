@@ -6,7 +6,6 @@ import Layout from "../layouts/application"
 
 export interface ListingsProps {
   listings: Listing[]
-  closedListings: Listing[]
 }
 
 export default function PartOne(props: ListingsProps) {

@@ -1,13 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
-import {
-  MinimalTable,
-  PageHeader,
-  ResponsiveContentItemBody,
-  StandardTable,
-} from "@bloom-housing/ui-components"
+import { PageHeader, StandardTable } from "@bloom-housing/ui-components"
 import Layout from "../layouts/application"
-import { PropertiesService } from "@bloom-housing/backend-core/types"
 
 export default function Docs() {
   const pageTitle = "Exygy Assessment - Docs"
@@ -86,9 +80,9 @@ export default function Docs() {
       monthlyRentPercentIncome: "null",
     },
     {
-      unitType: "2 BR",
-      monthlyMinIncome: "$2,036",
-      monthlyRent: "$1,018",
+      unitType: "1 BR",
+      monthlyMinIncome: "$1,763",
+      monthlyRent: "$881",
       monthlyRentPercentIncome: "null",
     },
     {
@@ -103,6 +97,12 @@ export default function Docs() {
       monthlyRent: "null",
       monthlyRentPercentIncome: "30%",
     },
+    {
+      unitType: "2 BR",
+      monthlyMinIncome: "$2,036",
+      monthlyRent: "$1,018",
+      monthlyRentPercentIncome: "null",
+    },
   ]
 
   const exampleCSummaryData = [
@@ -110,8 +110,9 @@ export default function Docs() {
       unitType: "1 BR",
       monthlyMinIncome: "$1,763 per month",
       rent: "$881 per month",
-      availability: "1 unit",
+      availability: "2 units",
     },
+
     {
       unitType: "2 BR",
       monthlyMinIncome: "$0 per month",
@@ -164,12 +165,12 @@ export default function Docs() {
             {getEmphasizedText("Unit Type")}, {getEmphasizedText("Minimum Income")},{" "}
             {getEmphasizedText("Rent")}, and {getEmphasizedText("Availability")}, and as many rows
             as there are unique unit type + rent method combinations amongst that listing's set of
-            units. The possible unit types are: {getEmphasizedText("Studio")},{" "}
+            units. The possible unit types in sorted order are: {getEmphasizedText("Studio")},{" "}
             {getEmphasizedText("1 BR")}, {getEmphasizedText("2 BR")}, and{" "}
             {getEmphasizedText("3 BR")}. The possible unit rent methods are:{" "}
             {getEmphasizedText("Static")} and {getEmphasizedText("Percent Income")}. The rent
             methods are binary, so a unit is either priced at a static dollar amount or as percent
-            of income.
+            of income. The rows are sorted first by Unit Type and then by Minimum Income.
           </p>
           <p className={"pt-4"}>
             Below are some examples of unit sets and what the unit summary table would look like for
@@ -183,7 +184,7 @@ export default function Docs() {
             <span className={"font-semibold"}>Example A - Unit Summary Table</span>
             <StandardTable headers={exampleSummaryHeaders} data={exampleASummaryData} />
           </p>
-          <p className={"pt-4 pb-16"}>
+          <p className={"pt-4 pb-12"}>
             Above for Example A we have two Studio units with the static rent method and the same
             minimum income and rent values, so we end up with one row and no value ranges.
           </p>
@@ -195,7 +196,7 @@ export default function Docs() {
             <span className={"font-semibold"}>Example B - Unit Summary Table</span>
             <StandardTable headers={exampleSummaryHeaders} data={exampleBSummaryData} />
           </p>
-          <p className={"pt-4 pb-16"}>
+          <p className={"pt-4 pb-12"}>
             Above for Example B we have two 1 BR units with the static rent method, but each unit
             has different minimum income and rent values so we end up with one row with value
             ranges.
@@ -208,18 +209,30 @@ export default function Docs() {
             <span className={"font-semibold"}>Example C - Unit Summary Table</span>
             <StandardTable headers={exampleSummaryHeaders} data={exampleCSummaryData} />
           </p>
-          <p className={"pt-4 pb-16"}>
-            Above for Example C we have one 1 BR unit with the static rent method, one 2 BR unit
-            with the static rent method, and two 2 BR units with the % income rent method. This is
+          <p className={"pt-4 pb-12"}>
+            Above for Example C we have two 1 BR units with the static rent method, two 2 BR units
+            with the % income rent method, and one 2 BR unit with the static rent method. This is
             why you see two rows for the 2 BR unit type - each row represents a different rent
             method.
           </p>
           <p>
-            Your task is to build the unit summary tables for each listing. You will input your
-            table solution in {getEmphasizedText("part-one.tsx")} which renders the{" "}
+            Your task in Part 1 is to build the unit summary tables for each listing. You will input
+            your table solution in {getEmphasizedText("part-one.tsx")} which renders the{" "}
             {getEmphasizedText("Assessment Part 1")} page in the navigation bar. We encourage you to
             use the {getEmphasizedText("StandardTable")} component out of our component library to
             display the data.
+          </p>
+        </section>
+        <section className="aside-block">
+          <h2 className="text-caps-underline">Assessment Part 2</h2>
+          <p>If you have time, move onto Part 2 of the assessment below.</p>
+          <p className={"pt-4"}>
+            For Part 2 of the assessment, we would like you to build a form that allows you to edit
+            the main listing fields, which are {getEmphasizedText("listing.name")},{" "}
+            {getEmphasizedText("listing.address")}, and{" "}
+            {getEmphasizedText("listing.applicationDueDate")}. You will input your form solution in{" "}
+            {getEmphasizedText("part-two.tsx")} which renders the{" "}
+            {getEmphasizedText("Assessment Part 2")} page in the navigation bar.
           </p>
         </section>
       </div>

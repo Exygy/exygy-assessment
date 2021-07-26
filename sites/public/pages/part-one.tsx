@@ -11,6 +11,8 @@ export interface ListingsProps {
 export default function PartOne(props: ListingsProps) {
   const pageTitle = "Exygy Assessment - Part One"
 
+  console.log(props.listings)
+
   return (
     <Layout>
       <Head>
@@ -30,9 +32,7 @@ export async function getStaticProps() {
   let listings = []
 
   try {
-    const response = await axios.get(
-      process.env.listingServiceUrl + "?filter[$comparison]=<>&filter[status]=pending"
-    )
+    const response = await axios.get(process.env.listingServiceUrl)
     listings = response.data
   } catch (error) {
     console.error(error)

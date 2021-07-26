@@ -8,7 +8,6 @@ import { Repository } from "typeorm"
 import { addFilter } from "../shared/filter"
 import { plainToClass } from "class-transformer"
 import { PropertyCreateDto, PropertyUpdateDto } from "../property/dto/property.dto"
-import { arrayIndex } from "../libs/arrayLib"
 
 @Injectable()
 export class ListingsService {
@@ -16,26 +15,10 @@ export class ListingsService {
 
   private getQueryBuilder() {
     return Listing.createQueryBuilder("listings")
-      .leftJoinAndSelect("listings.image", "image")
-      .leftJoinAndSelect("listings.events", "listingEvents")
-      .leftJoinAndSelect("listingEvents.file", "listingEventFile")
-      .leftJoinAndSelect("listings.result", "result")
-      .leftJoinAndSelect("listings.applicationAddress", "applicationAddress")
-      .leftJoinAndSelect("listings.leasingAgentAddress", "leasingAgentAddress")
-      .leftJoinAndSelect("listings.applicationPickUpAddress", "applicationPickUpAddress")
-      .leftJoinAndSelect("listings.applicationMailingAddress", "applicationMailingAddress")
-      .leftJoinAndSelect("listings.applicationDropOffAddress", "applicationDropOffAddress")
-      .leftJoinAndSelect("listings.leasingAgents", "leasingAgents")
-      .leftJoinAndSelect("listings.preferences", "preferences")
       .leftJoinAndSelect("listings.property", "property")
       .leftJoinAndSelect("property.buildingAddress", "buildingAddress")
       .leftJoinAndSelect("property.units", "units")
       .leftJoinAndSelect("units.unitType", "unitTypeRef")
-      .leftJoinAndSelect("units.unitRentType", "unitRentType")
-      .leftJoinAndSelect("units.priorityType", "priorityType")
-      .leftJoinAndSelect("units.amiChart", "amiChart")
-      .leftJoinAndSelect("listings.jurisdiction", "jurisdiction")
-      .leftJoinAndSelect("listings.reservedCommunityType", "reservedCommunityType")
   }
 
   public async list(
@@ -50,27 +33,9 @@ export class ListingsService {
 
     qb.orderBy({
       "listings.id": "DESC",
-      "units.max_occupancy": "ASC",
-      "preferences.ordinal": "ASC",
     })
 
     let listings = await qb.getMany()
-
-    /**
-     * Get the application counts and map them to listings
-     */
-    if (origin === process.env.PARTNERS_BASE_URL) {
-      const counts = await Listing.createQueryBuilder("listing")
-        .select("listing.id")
-        .loadRelationCountAndMap("listing.applicationCount", "listing.applications", "applications")
-        .getMany()
-
-      const countIndex = arrayIndex<Listing>(counts, "id")
-
-      listings.forEach((listing: Listing) => {
-        listing.applicationCount = countIndex[listing.id].applicationCount || 0
-      })
-    }
 
     if (jsonpath) {
       listings = jp.query(listings, jsonpath)

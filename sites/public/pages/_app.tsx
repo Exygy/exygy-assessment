@@ -1,11 +1,10 @@
 import "@bloom-housing/ui-components/src/global/index.scss"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo } from "react"
 import type { AppProps } from "next/app"
 import {
   addTranslation,
   GenericRouter,
   NavigationContext,
-  AuthProvider,
   ConfigProvider,
 } from "@bloom-housing/ui-components"
 import { headScript, bodyTopTag, pageChangeHandler } from "../src/customScripts"
@@ -55,9 +54,7 @@ function BloomApp({ Component, router, pageProps }: AppProps) {
       }}
     >
       <ConfigProvider apiUrl={process.env.backendApiBase}>
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
+        <Component {...pageProps} />∂{" "}
       </ConfigProvider>
     </NavigationContext.Provider>
   )

@@ -2,18 +2,13 @@ import { ClassSerializerInterceptor, DynamicModule, INestApplication, Module } f
 import { TypeOrmModule } from "@nestjs/typeorm"
 // Use require because of the CommonJS/AMD style export.
 // See https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require
-import { AuthModule } from "./auth/auth.module"
 
 import { ListingsModule } from "./listings/listings.module"
-import { ApplicationsModule } from "./applications/applications.module"
 import { EntityNotFoundExceptionFilter } from "./filters/entity-not-found-exception.filter"
 import { logger } from "./middleware/logger.middleware"
-import { PreferencesModule } from "./preferences/preferences.module"
 import { UnitsModule } from "./units/units.module"
 import { PropertyGroupsModule } from "./property-groups/property-groups.module"
 import { PropertiesModule } from "./property/properties.module"
-import { AmiChartsModule } from "./ami-charts/ami-charts.module"
-import { ApplicationFlaggedSetsModule } from "./application-flagged-sets/application-flagged-sets.module"
 import * as bodyParser from "body-parser"
 import { ThrottlerModule } from "@nestjs/throttler"
 import { ThrottlerStorageRedisService } from "nestjs-throttler-storage-redis"
@@ -23,11 +18,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config"
 import { TranslationsModule } from "./translations/translations.module"
 import { Reflector } from "@nestjs/core"
 import { AssetsModule } from "./assets/assets.module"
-import { JurisdictionsModule } from "./jurisdictions/jurisdictions.module"
-import { ReservedCommunityTypesModule } from "./reserved-community-type/reserved-community-types.module"
 import { UnitTypesModule } from "./unit-types/unit-types.module"
-import { UnitRentTypesModule } from "./unit-rent-types/unit-rent-types.module"
-import { UnitAccessibilityPriorityTypesModule } from "./unit-accessbility-priority-types/unit-accessibility-priority-types.module"
 
 export function applicationSetup(app: INestApplication) {
   app.enableCors()
@@ -67,17 +58,10 @@ export class AppModule {
     return {
       module: AppModule,
       imports: [
-        AmiChartsModule,
-        ApplicationFlaggedSetsModule,
-        ApplicationsModule,
         AssetsModule,
-        AuthModule,
-        JurisdictionsModule,
         ListingsModule,
-        PreferencesModule,
         PropertiesModule,
         PropertyGroupsModule,
-        ReservedCommunityTypesModule,
         SharedModule,
         TranslationsModule,
         TypeOrmModule.forRoot({
@@ -95,8 +79,6 @@ export class AppModule {
         }),
         UnitsModule,
         UnitTypesModule,
-        UnitRentTypesModule,
-        UnitAccessibilityPriorityTypesModule,
       ],
     }
   }

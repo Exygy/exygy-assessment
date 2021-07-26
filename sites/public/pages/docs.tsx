@@ -176,39 +176,39 @@ export default function Docs() {
             Below are some examples of unit sets and what the unit summary table would look like for
             each set.
           </p>
-          <p className={"pt-4"}>
+          <div className={"pt-4"}>
             <span className={"font-semibold"}>Example A - Unit Data</span>
             <StandardTable headers={exampleUnitHeaders} data={exampleAUnitData} />
-          </p>
-          <p className={"pt-4"}>
+          </div>
+          <div className={"pt-4"}>
             <span className={"font-semibold"}>Example A - Unit Summary Table</span>
             <StandardTable headers={exampleSummaryHeaders} data={exampleASummaryData} />
-          </p>
+          </div>
           <p className={"pt-4 pb-12"}>
             Above for Example A we have two Studio units with the static rent method and the same
             minimum income and rent values, so we end up with one row and no value ranges.
           </p>
-          <p className={"pt-4"}>
+          <div className={"pt-4"}>
             <span className={"font-semibold"}>Example B - Unit Data</span>
             <StandardTable headers={exampleUnitHeaders} data={exampleBUnitData} />
-          </p>
-          <p className={"pt-4"}>
+          </div>
+          <div className={"pt-4"}>
             <span className={"font-semibold"}>Example B - Unit Summary Table</span>
             <StandardTable headers={exampleSummaryHeaders} data={exampleBSummaryData} />
-          </p>
+          </div>
           <p className={"pt-4 pb-12"}>
             Above for Example B we have two 1 BR units with the static rent method, but each unit
             has different minimum income and rent values so we end up with one row with value
             ranges.
           </p>
-          <p className={"pt-4"}>
+          <div className={"pt-4"}>
             <span className={"font-semibold"}>Example C - Unit Data</span>
             <StandardTable headers={exampleUnitHeaders} data={exampleCUnitData} />
-          </p>
-          <p className={"pt-4"}>
+          </div>
+          <div className={"pt-4"}>
             <span className={"font-semibold"}>Example C - Unit Summary Table</span>
             <StandardTable headers={exampleSummaryHeaders} data={exampleCSummaryData} />
-          </p>
+          </div>
           <p className={"pt-4 pb-12"}>
             Above for Example C we have two 1 BR units with the static rent method, two 2 BR units
             with the % income rent method, and one 2 BR unit with the static rent method. This is
@@ -218,9 +218,11 @@ export default function Docs() {
           <p>
             Your task in Part 1 is to build the unit summary tables for each listing. You will input
             your table solution in {getEmphasizedText("part-one.tsx")} which renders the{" "}
-            {getEmphasizedText("Assessment Part 1")} page in the navigation bar. We encourage you to
+            {getEmphasizedText("Assessment Part 1")} page in the navigation bar. Your implementation
+            will be inside of our {getEmphasizedText("ListingsList")} component. We encourage you to
             use the {getEmphasizedText("StandardTable")} component out of our component library to
-            display the data.
+            display the data, and you are welcome to create new components in our component library
+            if you choose.
           </p>
         </section>
         <section className="aside-block">
@@ -228,10 +230,9 @@ export default function Docs() {
           <p>If you have time, move onto Part 2 of the assessment below.</p>
           <p className={"pt-4"}>
             For Part 2 of the assessment, we would like you to build a form that allows you to edit
-            the main listing fields, which are {getEmphasizedText("listing.name")},{" "}
-            {getEmphasizedText("listing.address")}, and{" "}
-            {getEmphasizedText("listing.applicationDueDate")}. You will input your form solution in{" "}
-            {getEmphasizedText("part-two.tsx")} which renders the{" "}
+            two of the main listing fields, which are {getEmphasizedText("listing.buildingAddress")}{" "}
+            and {getEmphasizedText("listing.applicationDueDate")}. You will input your form solution
+            in {getEmphasizedText("part-two.tsx")} which renders the{" "}
             {getEmphasizedText("Assessment Part 2")} page in the navigation bar.
           </p>
         </section>

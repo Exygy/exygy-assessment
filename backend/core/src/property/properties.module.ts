@@ -3,10 +3,9 @@ import { PropertiesController } from "./properties.controller"
 import { PropertiesService } from "./properties.service"
 import { TypeOrmModule } from "@nestjs/typeorm"
 import { Property } from "./entities/property.entity"
-import { AuthModule } from "../auth/auth.module"
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Property]), AuthModule],
+  imports: [TypeOrmModule.forFeature([Property])],
   controllers: [PropertiesController],
   providers: [PropertiesService],
 })

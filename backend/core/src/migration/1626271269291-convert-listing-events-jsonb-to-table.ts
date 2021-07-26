@@ -1,5 +1,4 @@
 import { MigrationInterface, QueryRunner } from "typeorm"
-import { ListingEvent } from "../listings/entities/listing-event.entity"
 
 export class convertListingEventsJsonbToTable1626271269291 implements MigrationInterface {
   name = "convertListingEventsJsonbToTable1626271269291"
@@ -31,25 +30,6 @@ export class convertListingEventsJsonbToTable1626271269291 implements MigrationI
     )
 
     const listings = await queryRunner.query(`SELECT id, events FROM listings`)
-    for (const listing of listings) {
-      if (listing.events && listing.events.length) {
-        const events = listing.events as Array<ListingEvent>
-        for (const event of events) {
-          await queryRunner.query(
-            `INSERT INTO "listing_events" (type, url, note, listing_id, label, start_time, end_time) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-            [
-              event.type,
-              event.url,
-              event.note,
-              listing.id,
-              event.label,
-              event.startTime,
-              event.endTime,
-            ]
-          )
-        }
-      }
-    }
 
     await queryRunner.query(`ALTER TABLE "listings" DROP COLUMN "events"`)
   }

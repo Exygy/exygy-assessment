@@ -6,14 +6,10 @@ import {
   Param,
   Post,
   Put,
-  UseGuards,
   UsePipes,
   ValidationPipe,
 } from "@nestjs/common"
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger"
-import { DefaultAuthGuard } from "../auth/guards/default.guard"
-import { AuthzGuard } from "../auth/guards/authz.guard"
-import { ResourceType } from "../auth/decorators/resource-type.decorator"
 import { mapTo } from "../shared/mapTo"
 import { PropertiesService } from "./properties.service"
 import { PropertyCreateDto, PropertyDto, PropertyUpdateDto } from "./dto/property.dto"
@@ -22,8 +18,6 @@ import { defaultValidationPipeOptions } from "../shared/default-validation-pipe-
 @Controller("properties")
 @ApiTags("properties")
 @ApiBearerAuth()
-@ResourceType("property")
-@UseGuards(DefaultAuthGuard, AuthzGuard)
 @UsePipes(new ValidationPipe(defaultValidationPipeOptions))
 export class PropertiesController {
   constructor(private readonly propertiesService: PropertiesService) {}

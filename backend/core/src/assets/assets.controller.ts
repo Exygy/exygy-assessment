@@ -1,20 +1,7 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-  UseGuards,
-  UsePipes,
-  ValidationPipe,
-} from "@nestjs/common"
+import { Body, Controller, Get, Param, Post, Query, UsePipes, ValidationPipe } from "@nestjs/common"
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger"
 import { mapTo } from "../shared/mapTo"
-import { ResourceType } from "../auth/decorators/resource-type.decorator"
-import { AuthzGuard } from "../auth/guards/authz.guard"
 import { defaultValidationPipeOptions } from "../shared/default-validation-pipe-options"
-import { DefaultAuthGuard } from "../auth/guards/default.guard"
 import { AssetsService } from "./services/assets.service"
 import {
   AssetCreateDto,
@@ -29,8 +16,6 @@ export class PaginatedAssetsDto extends PaginationFactory<AssetDto>(AssetDto) {}
 @Controller("assets")
 @ApiTags("assets")
 @ApiBearerAuth()
-@ResourceType("asset")
-@UseGuards(DefaultAuthGuard, AuthzGuard)
 @UsePipes(
   new ValidationPipe({
     ...defaultValidationPipeOptions,

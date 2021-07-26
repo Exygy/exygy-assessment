@@ -32,9 +32,6 @@ import {
   ListingUpdateDto,
   ListingFilterParams,
 } from "./dto/listing.dto"
-import { ResourceType } from "../auth/decorators/resource-type.decorator"
-import { OptionalAuthGuard } from "../auth/guards/optional-auth.guard"
-import { AuthzGuard } from "../auth/guards/authz.guard"
 import { ApiImplicitQuery } from "@nestjs/swagger/dist/decorators/api-implicit-query.decorator"
 import { mapTo } from "../shared/mapTo"
 import { defaultValidationPipeOptions } from "../shared/default-validation-pipe-options"
@@ -43,8 +40,6 @@ import { clearCacheKeys } from "../libs/cacheLib"
 @Controller("listings")
 @ApiTags("listings")
 @ApiBearerAuth()
-@ResourceType("listing")
-@UseGuards(OptionalAuthGuard, AuthzGuard)
 @UsePipes(new ValidationPipe(defaultValidationPipeOptions))
 export class ListingsController {
   cacheKeys: string[]
@@ -52,7 +47,7 @@ export class ListingsController {
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
     private readonly listingsService: ListingsService
   ) {
-    this.cacheKeys = ["/listings", "/listings?filter[$comparison]=%3C%3E&filter[status]=pending"]
+    this.cacheKeys = ["/listings"]
   }
 
   @Get()
@@ -69,10 +64,7 @@ export class ListingsController {
     type: [String],
     schema: {
       type: "array",
-      example: [
-        { $comparison: "=", status: "active" },
-        { $comparison: "<>", name: "Coliseum" },
-      ],
+      example: [{ $comparison: "<>", name: "Coliseum" }],
       items: {
         $ref: getSchemaPath(ListingFilterParams),
       },

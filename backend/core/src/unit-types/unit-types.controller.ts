@@ -1,7 +1,4 @@
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger"
-import { DefaultAuthGuard } from "../auth/guards/default.guard"
-import { AuthzGuard } from "../auth/guards/authz.guard"
-import { ResourceType } from "../auth/decorators/resource-type.decorator"
 import { mapTo } from "../shared/mapTo"
 import {
   Body,
@@ -11,7 +8,6 @@ import {
   Param,
   Post,
   Put,
-  UseGuards,
   UsePipes,
   ValidationPipe,
 } from "@nestjs/common"
@@ -22,8 +18,6 @@ import { UnitTypeCreateDto, UnitTypeDto, UnitTypeUpdateDto } from "./dto/unit-ty
 @Controller("unitTypes")
 @ApiTags("unitTypes")
 @ApiBearerAuth()
-@ResourceType("unitType")
-@UseGuards(DefaultAuthGuard, AuthzGuard)
 @UsePipes(new ValidationPipe(defaultValidationPipeOptions))
 export class UnitTypesController {
   constructor(private readonly unitTypesService: UnitTypesService) {}

@@ -1,7 +1,4 @@
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger"
-import { DefaultAuthGuard } from "../auth/guards/default.guard"
-import { AuthzGuard } from "../auth/guards/authz.guard"
-import { ResourceType } from "../auth/decorators/resource-type.decorator"
 import { mapTo } from "../shared/mapTo"
 import { PropertyGroupsService } from "./property-groups.service"
 import {
@@ -26,8 +23,6 @@ import { defaultValidationPipeOptions } from "../shared/default-validation-pipe-
 @Controller("propertyGroups")
 @ApiTags("propertyGroups")
 @ApiBearerAuth()
-@ResourceType("propertyGroup")
-@UseGuards(DefaultAuthGuard, AuthzGuard)
 @UsePipes(new ValidationPipe(defaultValidationPipeOptions))
 export class PropertyGroupsController {
   constructor(private readonly propertyGroupsService: PropertyGroupsService) {}

@@ -5,11 +5,10 @@ import { CloudinaryService, UploadService } from "./services/upload.service"
 import { TypeOrmModule } from "@nestjs/typeorm"
 import { SharedModule } from "../shared/shared.module"
 import { Asset } from "./entities/asset.entity"
-import { AuthModule } from "../auth/auth.module"
 
 @Module({
   controllers: [AssetsController],
   providers: [AssetsService, { provide: UploadService, useClass: CloudinaryService }],
-  imports: [TypeOrmModule.forFeature([Asset]), AuthModule, SharedModule],
+  imports: [TypeOrmModule.forFeature([Asset]), SharedModule],
 })
 export class AssetsModule {}

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Head from "next/head"
 import { Listing } from "@bloom-housing/backend-core/types"
-import { Hero, t, SiteAlert } from "@bloom-housing/ui-components"
+import { Hero, SiteAlert } from "@bloom-housing/ui-components"
 import Layout from "../layouts/application"
 import axios from "axios"
 
@@ -49,9 +49,7 @@ export async function getStaticProps() {
   let listings = []
   try {
     // const response = await axios.get(process.env.listingServiceUrl)
-    const response = await axios.get(
-      process.env.listingServiceUrl + "?filter[$comparison]=<>&filter[status]=pending"
-    )
+    const response = await axios.get(process.env.listingServiceUrl)
     listings = response.data
   } catch (error) {
     console.error(error)

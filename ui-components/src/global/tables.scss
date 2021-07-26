@@ -1,5 +1,6 @@
 table {
   @apply text-gray-750;
+  max-width: 750px;
 
   strong {
     @apply font-semibold;
@@ -16,7 +17,6 @@ table {
     @apply p-5;
     @apply font-semibold;
     @apply tracking-wider;
-    @apply border-0;
     @apply border-b;
     @apply border-primary;
   }

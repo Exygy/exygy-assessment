@@ -56,7 +56,7 @@ function BloomApp({ Component, router, pageProps }: AppProps) {
     >
       <ConfigProvider apiUrl={process.env.backendApiBase}>
         <AuthProvider>
-          <Component {...pageProps} />∂{" "}
+          <Component {...pageProps} />
         </AuthProvider>
       </ConfigProvider>
     </NavigationContext.Provider>

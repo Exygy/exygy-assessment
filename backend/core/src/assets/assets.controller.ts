@@ -3,12 +3,7 @@ import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger"
 import { mapTo } from "../shared/mapTo"
 import { defaultValidationPipeOptions } from "../shared/default-validation-pipe-options"
 import { AssetsService } from "./services/assets.service"
-import {
-  AssetCreateDto,
-  AssetDto,
-  CreatePresignedUploadMetadataDto,
-  CreatePresignedUploadMetadataResponseDto,
-} from "./dto/asset.dto"
+import { AssetCreateDto, AssetDto } from "./dto/asset.dto"
 import { PaginationFactory, PaginationQueryParams } from "../shared/dto/pagination.dto"
 
 export class PaginatedAssetsDto extends PaginationFactory<AssetDto>(AssetDto) {}
@@ -29,20 +24,6 @@ export class AssetsController {
   async create(@Body() assetCreateDto: AssetCreateDto): Promise<AssetDto> {
     const asset = await this.assetsService.create(assetCreateDto)
     return mapTo(AssetDto, asset)
-  }
-
-  @Post("/presigned-upload-metadata")
-  @ApiOperation({
-    summary: "Create presigned upload metadata",
-    operationId: "createPresignedUploadMetadata",
-  })
-  async createPresignedUploadMetadata(
-    @Body() createPresignedUploadMetadataDto: CreatePresignedUploadMetadataDto
-  ): Promise<CreatePresignedUploadMetadataResponseDto> {
-    return mapTo(
-      CreatePresignedUploadMetadataResponseDto,
-      await this.assetsService.createPresignedUploadMetadata(createPresignedUploadMetadataDto)
-    )
   }
 
   @Get()

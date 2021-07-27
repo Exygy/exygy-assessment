@@ -235,9 +235,11 @@ export default function Docs() {
             {getEmphasizedText("listing.buildingAddress.city")}, and{" "}
             {getEmphasizedText("listing.applicationDueDate")}. You will input your form solution in{" "}
             {getEmphasizedText("part-two.tsx")} which renders the{" "}
-            {getEmphasizedText("Assessment Part 2")} page in the navigation bar. We encourage you to
-            use the {getEmphasizedText("Select")}, {getEmphasizedText("Field")}, and{" "}
-            {getEmphasizedText("DateField")} components.
+            {getEmphasizedText("Assessment Part 2")} page in the navigation bar. You can build your
+            form using any kind of component, package, or tool that you want, or nothing extra at
+            all. You can view API documentation of the {getEmphasizedText("ListingsService")} at{" "}
+            {getEmphasizedText("localhost:3100/docs")} and within{" "}
+            {getEmphasizedText("backend-swagger.ts")}.
           </p>
         </section>
         <section className="aside-block">

@@ -240,6 +240,13 @@ export default function Docs() {
           </p>
         </section>
         <section className="aside-block">
+          <h2 className="text-caps-underline">Extras</h2>
+          <p>
+            If you have even more time, which we do not anticipate, feel free to add unit tests for
+            your unit summaries solution in the __tests__ folder in ui-components.
+          </p>
+        </section>
+        <section className="aside-block">
           <h2 className="text-caps-underline">Assessment Submission</h2>
           <p>Idk</p>
         </section>

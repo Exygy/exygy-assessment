@@ -11,8 +11,6 @@ export interface PartOneProps {
 export default function PartOne(props: PartOneProps) {
   const pageTitle = "Exygy Assessment - Part One"
 
-  console.log(props.listings)
-
   return (
     <Layout>
       <Head>

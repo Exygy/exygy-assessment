@@ -222,7 +222,8 @@ export default function Docs() {
             will be inside of our {getEmphasizedText("ListingsList")} component. We encourage you to
             use the {getEmphasizedText("StandardTable")} component out of our component library to
             display the data, and you are welcome to create new components in our component library
-            if you choose.
+            if you choose. If you have extra time, which we do not anticipate, feel free to add unit
+            tests for your unit summaries solution in the __tests__ folder in ui-components.
           </p>
         </section>
         <section className="aside-block">
@@ -237,13 +238,6 @@ export default function Docs() {
             {getEmphasizedText("Assessment Part 2")} page in the navigation bar. We encourage you to
             use the {getEmphasizedText("Select")}, {getEmphasizedText("Field")}, and{" "}
             {getEmphasizedText("DateField")} components.
-          </p>
-        </section>
-        <section className="aside-block">
-          <h2 className="text-caps-underline">Extras</h2>
-          <p>
-            If you have even more time, which we do not anticipate, feel free to add unit tests for
-            your unit summaries solution in the __tests__ folder in ui-components.
           </p>
         </section>
         <section className="aside-block">

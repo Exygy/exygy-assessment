@@ -308,110 +308,6 @@ export class PropertiesService {
   }
 }
 
-export class PropertyGroupsService {
-  /**
-   * List propertyGroups
-   */
-  list(options: IRequestOptions = {}): Promise<PropertyGroup[]> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + "/propertyGroups"
-
-      const configs: IRequestConfig = getConfigs("get", "application/json", url, options)
-
-      let data = null
-
-      configs.data = data
-      axios(configs, resolve, reject)
-    })
-  }
-  /**
-   * Create propertyGroup
-   */
-  create(
-    params: {
-      /** requestBody */
-      body?: PropertyGroupCreate
-    } = {} as any,
-    options: IRequestOptions = {}
-  ): Promise<PropertyGroup> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + "/propertyGroups"
-
-      const configs: IRequestConfig = getConfigs("post", "application/json", url, options)
-
-      let data = params.body
-
-      configs.data = data
-      axios(configs, resolve, reject)
-    })
-  }
-  /**
-   * Update propertyGroup
-   */
-  update(
-    params: {
-      /** requestBody */
-      body?: PropertyGroupUpdate
-    } = {} as any,
-    options: IRequestOptions = {}
-  ): Promise<PropertyGroup> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + "/propertyGroups/{propertyGroupId}"
-
-      const configs: IRequestConfig = getConfigs("put", "application/json", url, options)
-
-      let data = params.body
-
-      configs.data = data
-      axios(configs, resolve, reject)
-    })
-  }
-  /**
-   * Get propertyGroup by id
-   */
-  retrieve(
-    params: {
-      /**  */
-      propertyGroupId: string
-    } = {} as any,
-    options: IRequestOptions = {}
-  ): Promise<PropertyGroup> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + "/propertyGroups/{propertyGroupId}"
-      url = url.replace("{propertyGroupId}", params["propertyGroupId"] + "")
-
-      const configs: IRequestConfig = getConfigs("get", "application/json", url, options)
-
-      let data = null
-
-      configs.data = data
-      axios(configs, resolve, reject)
-    })
-  }
-  /**
-   * Delete propertyGroup by id
-   */
-  delete(
-    params: {
-      /**  */
-      propertyGroupId: string
-    } = {} as any,
-    options: IRequestOptions = {}
-  ): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + "/propertyGroups/{propertyGroupId}"
-      url = url.replace("{propertyGroupId}", params["propertyGroupId"] + "")
-
-      const configs: IRequestConfig = getConfigs("delete", "application/json", url, options)
-
-      let data = null
-
-      configs.data = data
-      axios(configs, resolve, reject)
-    })
-  }
-}
-
 export class TranslationsService {
   /**
    * List translations
@@ -740,54 +636,18 @@ export interface Address {
   updatedAt: Date
 
   /**  */
-  placeName?: string
-
-  /**  */
   city?: string
 
   /**  */
-  county?: string
-
-  /**  */
-  state?: string
-
-  /**  */
   street?: string
-
-  /**  */
-  street2?: string
-
-  /**  */
-  zipCode?: string
 }
 
 export interface AddressCreate {
   /**  */
-  placeName?: string
-
-  /**  */
   city?: string
 
   /**  */
-  county?: string
-
-  /**  */
-  state?: string
-
-  /**  */
   street?: string
-
-  /**  */
-  street2?: string
-
-  /**  */
-  zipCode?: string
-
-  /**  */
-  latitude?: number
-
-  /**  */
-  longitude?: number
 }
 
 export interface AddressUpdate {
@@ -801,31 +661,10 @@ export interface AddressUpdate {
   updatedAt?: Date
 
   /**  */
-  placeName?: string
-
-  /**  */
   city?: string
 
   /**  */
-  county?: string
-
-  /**  */
-  state?: string
-
-  /**  */
   street?: string
-
-  /**  */
-  street2?: string
-
-  /**  */
-  zipCode?: string
-
-  /**  */
-  latitude?: number
-
-  /**  */
-  longitude?: number
 }
 
 export interface ListingFilterParams {
@@ -958,6 +797,9 @@ export interface ListingUpdate {
   applicationDueDate?: Date
 
   /**  */
+  buildingAddress: AddressUpdate
+
+  /** */
   name: string
 }
 
@@ -1001,42 +843,6 @@ export interface PropertyUpdate {
 
   /**  */
   units: UnitUpdate[]
-}
-
-export interface PropertyGroup {
-  /**  */
-  properties: Id[]
-
-  /**  */
-  id: string
-
-  /**  */
-  createdAt: Date
-
-  /**  */
-  updatedAt: Date
-
-  /**  */
-  name: string
-}
-
-export interface PropertyGroupCreate {
-  /**  */
-  name: string
-
-  /**  */
-  properties: Id[]
-}
-
-export interface PropertyGroupUpdate {
-  /**  */
-  name: string
-
-  /**  */
-  properties: Id[]
-
-  /**  */
-  id: string
 }
 
 export interface Translation {

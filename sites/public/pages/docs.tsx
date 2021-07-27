@@ -230,9 +230,11 @@ export default function Docs() {
           <p>If you have time, move onto Part 2 of the assessment below.</p>
           <p className={"pt-4"}>
             For Part 2 of the assessment, we would like you to build a form that allows you to edit
-            two of the main listing fields, which are {getEmphasizedText("listing.buildingAddress")}{" "}
-            and {getEmphasizedText("listing.applicationDueDate")}. You will input your form solution
-            in {getEmphasizedText("part-two.tsx")} which renders the{" "}
+            two of the main listing fields, which are{" "}
+            {getEmphasizedText("listing.buildingAddress.street")},{" "}
+            {getEmphasizedText("listing.buildingAddress.city")}, and{" "}
+            {getEmphasizedText("listing.applicationDueDate")}. You will input your form solution in{" "}
+            {getEmphasizedText("part-two.tsx")} which renders the{" "}
             {getEmphasizedText("Assessment Part 2")} page in the navigation bar.
           </p>
         </section>

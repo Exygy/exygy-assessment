@@ -1,3 +1,6 @@
+/* Authentication */
+export * from "./src/authentication/AuthContext"
+
 /* Actions */
 export * from "./src/actions/Button"
 export * from "./src/actions/ExpandableText"
@@ -10,7 +13,6 @@ export * from "./src/blocks/ActionBlock"
 export * from "./src/blocks/DashBlock"
 export * from "./src/blocks/DashBlocks"
 export * from "./src/blocks/FormCard"
-export * from "./src/blocks/HousingCounselor"
 export * from "./src/blocks/ImageCard"
 export * from "./src/blocks/InfoCard"
 export * from "./src/blocks/StatusBar"
@@ -47,7 +49,6 @@ export * from "./src/headers/PageHeader"
 export * from "./src/headers/SiteHeader"
 
 /* Helpers */
-export * from "./src/helpers/address"
 export * from "./src/helpers/capitalize"
 export * from "./src/helpers/dateToString"
 export * from "./src/helpers/formOptions"

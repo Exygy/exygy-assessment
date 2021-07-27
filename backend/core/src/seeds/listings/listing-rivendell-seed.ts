@@ -8,12 +8,7 @@ import { Listing } from "../../listings/entities/listing.entity"
 const rivendellProperty: PropertySeedType = {
   buildingAddress: {
     city: "Imladris",
-    county: "San Mateo",
-    state: "CA",
     street: "1697 Bruinen Ln",
-    zipCode: "12345",
-    latitude: 37.5658152,
-    longitude: -122.2704286,
   },
 }
 const rivendellUnits: Array<UnitSeedType> = [

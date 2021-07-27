@@ -25,13 +25,6 @@ export class Address {
 
   @Column({ type: "text", nullable: true })
   @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.default] })
-  @IsString({ groups: [ValidationsGroupsEnum.default] })
-  @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
-  placeName?: string
-
-  @Column({ type: "text", nullable: true })
-  @Expose()
   @IsOptional({ groups: [ValidationsGroupsEnum.partners] })
   @IsString({ groups: [ValidationsGroupsEnum.default] })
   @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
@@ -39,50 +32,8 @@ export class Address {
 
   @Column({ type: "text", nullable: true })
   @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.default] })
-  @IsString({ groups: [ValidationsGroupsEnum.default] })
-  @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
-  county?: string | null
-
-  @Column({ type: "text", nullable: true })
-  @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.partners] })
-  @IsString({ groups: [ValidationsGroupsEnum.default] })
-  @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
-  state?: string | null
-
-  @Column({ type: "text", nullable: true })
-  @Expose()
   @IsOptional({ groups: [ValidationsGroupsEnum.partners] })
   @IsString({ groups: [ValidationsGroupsEnum.default] })
   @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
   street?: string | null
-
-  @Column({ type: "text", nullable: true })
-  @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.default] })
-  @IsString({ groups: [ValidationsGroupsEnum.default] })
-  @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
-  street2?: string | null
-
-  @Column({ type: "text", nullable: true })
-  @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.partners] })
-  @IsString({ groups: [ValidationsGroupsEnum.default] })
-  @MaxLength(64, { groups: [ValidationsGroupsEnum.default] })
-  zipCode?: string | null
-
-  @Column({ type: "numeric", nullable: true })
-  @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.default] })
-  @IsNumber({}, { groups: [ValidationsGroupsEnum.default] })
-  @Type(() => Number)
-  latitude?: number | null
-
-  @Column({ type: "numeric", nullable: true })
-  @Expose()
-  @IsOptional({ groups: [ValidationsGroupsEnum.default] })
-  @IsNumber({}, { groups: [ValidationsGroupsEnum.default] })
-  @Type(() => Number)
-  longitude?: number | null
 }

@@ -4,11 +4,11 @@ import { ListingsList, PageHeader, t } from "@bloom-housing/ui-components"
 import { Listing } from "@bloom-housing/backend-core/types"
 import Layout from "../layouts/application"
 
-export interface ListingsProps {
+export interface PartOneProps {
   listings: Listing[]
 }
 
-export default function PartOne(props: ListingsProps) {
+export default function PartOne(props: PartOneProps) {
   const pageTitle = "Exygy Assessment - Part One"
 
   console.log(props.listings)

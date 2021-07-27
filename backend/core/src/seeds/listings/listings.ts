@@ -4,7 +4,7 @@ import { ListingCreateDto } from "../../listings/dto/listing.dto"
 import { AssetCreateDto } from "../../assets/dto/asset.dto"
 import { BaseEntity } from "typeorm"
 
-export type PropertySeedType = Omit<PropertyCreateDto, "propertyGroups" | "listings" | "units">
+export type PropertySeedType = Omit<PropertyCreateDto, "listings" | "units">
 
 export type UnitSeedType = Omit<UnitCreateDto, "property">
 

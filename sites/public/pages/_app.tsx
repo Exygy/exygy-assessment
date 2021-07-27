@@ -6,6 +6,7 @@ import {
   GenericRouter,
   NavigationContext,
   ConfigProvider,
+  AuthProvider,
 } from "@bloom-housing/ui-components"
 import { headScript, bodyTopTag, pageChangeHandler } from "../src/customScripts"
 
@@ -54,7 +55,9 @@ function BloomApp({ Component, router, pageProps }: AppProps) {
       }}
     >
       <ConfigProvider apiUrl={process.env.backendApiBase}>
-        <Component {...pageProps} />∂{" "}
+        <AuthProvider>
+          <Component {...pageProps} />∂{" "}
+        </AuthProvider>
       </ConfigProvider>
     </NavigationContext.Provider>
   )

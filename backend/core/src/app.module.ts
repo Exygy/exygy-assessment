@@ -7,7 +7,6 @@ import { ListingsModule } from "./listings/listings.module"
 import { EntityNotFoundExceptionFilter } from "./filters/entity-not-found-exception.filter"
 import { logger } from "./middleware/logger.middleware"
 import { UnitsModule } from "./units/units.module"
-import { PropertyGroupsModule } from "./property-groups/property-groups.module"
 import { PropertiesModule } from "./property/properties.module"
 import * as bodyParser from "body-parser"
 import { ThrottlerModule } from "@nestjs/throttler"
@@ -61,7 +60,6 @@ export class AppModule {
         AssetsModule,
         ListingsModule,
         PropertiesModule,
-        PropertyGroupsModule,
         SharedModule,
         TranslationsModule,
         TypeOrmModule.forRoot({

@@ -15,12 +15,7 @@ export function getDefaultProperty() {
 export const defaultProperty: PropertySeedType = {
   buildingAddress: {
     city: "San Francisco",
-    state: "CA",
     street: "548 Market Street",
-    street2: "Suite #59930",
-    zipCode: "94104",
-    latitude: 37.789673,
-    longitude: -122.40151,
   },
 }
 

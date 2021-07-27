@@ -28,18 +28,8 @@ export class convertListingAddressesJsonbsToTables1626258763008 implements Migra
           const [
             addrId,
           ] = await queryRunner.query(
-            `INSERT INTO "address" (place_name, city, county, state, street, street2, zip_code, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id`,
-            [
-              addr.placeName,
-              addr.city,
-              addr.county,
-              addr.state,
-              addr.street,
-              addr.street2,
-              addr.zipCode,
-              addr.latitude,
-              addr.longitude,
-            ]
+            `INSERT INTO "address" (city, street) VALUES ($1, $2) RETURNING id`,
+            [addr.city, addr.street]
           )
           await queryRunner.query(`UPDATE listings SET ${addressKey}_id = ($1) WHERE id = ($2)`, [
             addrId.id,

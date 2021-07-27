@@ -8,13 +8,8 @@ import { ListingDefaultSeed } from "./listing-default-seed"
 
 const gondorProperty: PropertySeedType = {
   buildingAddress: {
-    county: "Alameda",
     city: "Minas Tirith",
     street: "3320 Pelennor Ave",
-    zipCode: "12345",
-    state: "CA",
-    latitude: 37.7549632,
-    longitude: -122.1968792,
   },
 }
 const gondorUnits: Array<UnitSeedType> = [

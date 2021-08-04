@@ -44,7 +44,7 @@ yarn install
 
 ### Setting up your local environment variables
 
-Configuration of each app and service is read from environment variables. There is a `.env.template` file in each app & service directory that must be copied to `.env` (or equivalent). You will need to create this local env file from the templates in `backend/core`, `ui-components`, and `sites/public`.
+Configuration of each app and service is read from environment variables. There is a `.env.template` file in each app & service directory that must be copied to `.env` (or equivalent). You will need to create this local env file from the templates in `backend/core` and `sites/public`.
 
 ### Backend
 

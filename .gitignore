@@ -84,5 +84,8 @@ yarn-error.log
 # VS code debugger config
 launch.json
 
+# VS code workspace
+*.code-workspace
+
 # Jest unit test coverage
 test-coverage/

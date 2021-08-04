@@ -11,7 +11,6 @@ import {
   Put,
   Query,
   Headers,
-  UseGuards,
   UseInterceptors,
   UsePipes,
   ValidationPipe,

@@ -242,10 +242,6 @@ export default function Docs() {
             {getEmphasizedText("backend-swagger.ts")}.
           </p>
         </section>
-        <section className="aside-block">
-          <h2 className="text-caps-underline">Assessment Submission</h2>
-          <p>Idk</p>
-        </section>
       </div>
     </Layout>
   )

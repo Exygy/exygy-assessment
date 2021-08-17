@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { LocalizedLink } from "../actions/LocalizedLink"
-import { LanguageNav, LangItem } from "../navigation/LanguageNav"
+import { LangItem } from "../navigation/LanguageNav"
 
 export interface SiteHeaderLanguage {
   list: LangItem[]

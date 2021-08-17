@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Head from "next/head"
 import { Listing } from "@bloom-housing/backend-core/types"
 import { Hero, SiteAlert } from "@bloom-housing/ui-components"
@@ -10,13 +10,6 @@ interface IndexProps {
 }
 
 export default function Home(props: IndexProps) {
-  const blankAlertInfo = {
-    alertMessage: null,
-    alertType: null,
-  }
-
-  const [alertInfo, setAlertInfo] = useState(blankAlertInfo)
-
   const heroTitle = (
     <>
       Welcome to the

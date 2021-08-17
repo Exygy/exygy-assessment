@@ -1,6 +1,6 @@
 import Head from "next/head"
 import axios from "axios"
-import { ListingsList, PageHeader, t } from "@bloom-housing/ui-components"
+import { ListingsList, PageHeader } from "@bloom-housing/ui-components"
 import { Listing } from "@bloom-housing/backend-core/types"
 import Layout from "../layouts/application"
 

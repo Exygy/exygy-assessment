@@ -1,6 +1,6 @@
 import Layout from "../layouts/application"
 import Head from "next/head"
-import { Hero, t } from "@bloom-housing/ui-components"
+import { Hero } from "@bloom-housing/ui-components"
 
 const ErrorPage = () => {
   const pageTitle = "Page Not Found"

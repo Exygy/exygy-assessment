@@ -61,6 +61,7 @@ If you have multiple versions of Node installed, you can use `nvm` (node version
 ### Installing Postgresql
 
 You can install Postgres using Homebrew with the following command: `brew install postgresql`.
+You can start it with `brew services start postgresql`.
 
 ### Installing Redis
 
@@ -84,6 +85,8 @@ yarn && yarn db:reseed
 ```
 
 The above will create the `bloom` DB for you, migrate it to the latest schema, and seed it with data. (If running the reseed command requires that you input a password for Postgres, set the following environment variables: `PGUSER` to postgres and `PGPASSWORD` to the default password you inputted for the postgres user during Postgres installation.)
+
+If you see `psql: error: FATAL: database "<user>" does not exist` you may need to run `createdb <user>` first.
 
 If you make edits to the database and want to get it back to its default state, you can run the above reseed command again at any time.
 

@@ -140,7 +140,8 @@ export default function Docs() {
           <p>
             Thank you for taking the time to complete Exygy's take-home code assessment! If you have
             any questions about the assessment or directions at any time, please don't hesitate to
-            reach out. This repo is a highly pared-down version of an Exygy product, Bloom.{" "}
+            reach out. This is a new take-home assessment for us so we'd love to know about any
+            kinks you run into. This repo is a highly pared-down version of an Exygy product, Bloom.{" "}
             <Link href="https://housing.exygy.com/">
               <a>Bloom</a>
             </Link>{" "}
@@ -150,6 +151,13 @@ export default function Docs() {
             Listings for affordable housing units are often more complicated than your average
             rental listing due to various voucher programs, county-level housing preferences, and
             income adjustments that must be considered across applicant pools.
+          </p>
+
+          <p className={"pt-4"}>
+            There are two parts to this assessment. If you have time, complete them both, but do not
+            stress about needing to finish them both. You may also start with either part if one
+            seems more up your alley, easier for you, or more interesting. Please don't spend more
+            than ~5 hours on the assessment.
           </p>
         </section>
         <section className="aside-block">
